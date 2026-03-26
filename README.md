@@ -59,28 +59,49 @@ train_texts = [example["text"] for example in train_data]
 herero_dataset/
 ├── huggingface_dataset/        # HuggingFace-ready dataset (uploaded to HF)
 │   ├── README.md               # Dataset card
-│   ├── LICENSE                 # MIT license
+│   ├── LICENSE                # MIT license
 │   └── data/
 │       ├── train.parquet
 │       ├── validation.parquet
 │       └── test.parquet
-├── scripts/                   # Data collection and processing
+├── scripts/                    # Data collection and processing
 │   ├── create_hf_dataset.py   # Main dataset creation script
 │   ├── scrapers/              # Source-specific scrapers
 │   └── processing/            # Data curation scripts
 ├── tests/                     # TDD tests
 ├── docs/                      # Documentation
+├── Dockerfile                 # Container definition
+├── pyproject.toml            # Project configuration (uv-compatible)
 ├── CITATION.cff               # Citation file
 └── README.md
+```
+
+## Quick Start
+
+### Using Docker
+
+```bash
+docker build -t herero-dataset .
+docker run herero-dataset
+```
+
+### Using uv
+
+```bash
+uv sync
+uv run pytest tests/ -v
+```
+
+### Using pip
+
+```bash
+pip install -r requirements.txt
+pytest tests/ -v
 ```
 
 ## Running Tests
 
 ```bash
-# Install dependencies
-pip install -r requirements.txt
-
-# Run tests
 pytest tests/ -v
 ```
 
