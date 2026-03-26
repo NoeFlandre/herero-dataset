@@ -63,3 +63,8 @@ credentials/
 .env
 .env.local
 .env.*.local
+
+# HuggingFace dataset data (uploaded separately to HF)
+huggingface_dataset/data/
+huggingface_dataset/dataset_info.json
+huggingface_dataset/dataset_stats.json
