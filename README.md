@@ -1,8 +1,12 @@
 # Herero Language Dataset
 
 [![HuggingFace Dataset](https://img.shields.io/badge/Dataset-HuggingFace-blue)](https://huggingface.co/datasets/NoeFlandre/herero-dataset)
+[![GitHub Repository](https://img.shields.io/badge/Code-GitHub-blue)](https://github.com/NoeFlandre/herero-dataset)
 
 A **multi-license collection** of [Herero (Otjiherero)](https://en.wikipedia.org/wiki/Herero_language) text for NLP research and LLM pretraining.
+
+> **📦 Data:** [HuggingFace Dataset](https://huggingface.co/datasets/NoeFlandre/herero-dataset) — hosted on HF Hub with Parquet files  
+> **💻 Code:** This repository — scrapers, processing scripts, and documentation
 
 **⚠️ This repository redistributes materials from multiple upstream sources under different licenses. Check per-row `original_license` before reuse.**
 
@@ -69,16 +73,16 @@ pytest tests/ -v
 
 ```
 ├── huggingface_dataset/   # Dataset on HF Hub
-│   ├── README.md         # Dataset card
+│   ├── README.md         # Dataset card (on HF)
 │   ├── LICENSE           # Multi-license notice
-│   ├── sources.csv       # Source manifest
+│   ├── sources.csv        # Source manifest
 │   └── data/
 │       ├── train.parquet
 │       ├── validation.parquet
 │       └── test.parquet
 ├── scripts/              # Scrapers & processing
-├── tests/               # TDD tests
-├── docs/                # Source documentation
+├── tests/                # TDD tests
+├── docs/                 # Source documentation
 ├── Dockerfile
 ├── pyproject.toml
 └── README.md

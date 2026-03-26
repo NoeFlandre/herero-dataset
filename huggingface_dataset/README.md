@@ -10,7 +10,13 @@ task_categories:
 
 # Herero Language Dataset
 
+[![GitHub Repository](https://img.shields.io/badge/Code-GitHub-blue)](https://github.com/NoeFlandre/herero-dataset)
+[![HuggingFace Dataset](https://img.shields.io/badge/Dataset-HuggingFace-blue)](https://huggingface.co/datasets/NoeFlandre/herero-dataset)
+
 A **multi-license collection** of [Herero (Otjiherero)](https://en.wikipedia.org/wiki/Herero_language) text for NLP research. This is **not** a derivative work—sources are aggregated with original licenses preserved.
+
+> **📦 Data:** This page — download Parquet files here  
+> **💻 Code:** [GitHub Repository](https://github.com/NoeFlandre/herero-dataset) — scrapers, scripts, and documentation
 
 **⚠️ WARNING: This repository is a redistribution of materials from multiple upstream sources under different licenses. Each example remains subject to its original source license. Users are responsible for checking per-row licensing before reuse.**
 
