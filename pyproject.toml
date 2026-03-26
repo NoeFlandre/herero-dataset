@@ -1,9 +1,10 @@
 [project]
 name = "herero-dataset"
 version = "1.0.0"
-description = "A curated Herero (Otjiherero) language dataset for NLP research"
+description = "A multi-license Herero (Otjiherero) language dataset for NLP research"
 readme = "README.md"
 requires-python = ">=3.10"
+# Code is MIT licensed; data is multi-license (see huggingface_dataset/LICENSE)
 license = {text = "MIT"}
 authors = [
     {name = "Noé Flandre", email = "noe@example.com"}
