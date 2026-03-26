@@ -12,6 +12,7 @@ A curated dataset of Herero (Otjiherero) language text for NLP research and lang
 |--------|-------|
 | **Total Documents** | 1,951 |
 | **Total Words** | 870,941 |
+| **Total Characters** | 5,882,568 |
 | **Languages** | Herero (hz) |
 | **License** | MIT |
 
@@ -42,6 +43,14 @@ from datasets import load_dataset
 
 # Load from HuggingFace Hub
 dataset = load_dataset("NoeFlandre/herero-dataset")
+
+# Access splits
+train_data = dataset["train"]
+val_data = dataset["validation"]
+test_data = dataset["test"]
+
+# Get all training text
+train_texts = [example["text"] for example in train_data]
 ```
 
 ## Structure
@@ -52,11 +61,27 @@ herero_dataset/
 │   ├── README.md               # Dataset card
 │   ├── LICENSE                 # MIT license
 │   └── data/
-│       ├── train.jsonl
-│       ├── validation.jsonl
-│       └── test.jsonl
-├── scripts/                    # Data collection and processing
-└── docs/                      # Documentation
+│       ├── train.parquet
+│       ├── validation.parquet
+│       └── test.parquet
+├── scripts/                   # Data collection and processing
+│   ├── create_hf_dataset.py   # Main dataset creation script
+│   ├── scrapers/              # Source-specific scrapers
+│   └── processing/            # Data curation scripts
+├── tests/                     # TDD tests
+├── docs/                      # Documentation
+├── CITATION.cff               # Citation file
+└── README.md
+```
+
+## Running Tests
+
+```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Run tests
+pytest tests/ -v
 ```
 
 ## License

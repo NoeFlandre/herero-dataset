@@ -1,12 +1,14 @@
-# Herero Dataset - Python Dependencies
-
-# Web scraping
+# Core dependencies
 requests>=2.28.0
 beautifulsoup4>=4.11.0
 lxml>=4.9.0
-
-# Data processing
 pyyaml>=6.0
+pandas>=2.0.0
+pyarrow>=12.0.0
+
+# HuggingFace
+datasets>=2.14.0
+huggingface_hub>=0.20.0
 
 # Development
 pytest>=7.0.0
