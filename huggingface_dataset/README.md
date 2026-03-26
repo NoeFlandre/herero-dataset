@@ -71,21 +71,7 @@ A curated dataset of Herero (Otjiherero) language text for LLM pretraining and N
 
 ### Data Format
 
-JSONL files with the following schema:
-
-```json
-{
-  "id": "fw2_00001",
-  "text": "Herero language text content...",
-  "source": "fineweb2",
-  "url": "https://example.com/source",
-  "license": "ODC-By 1.0",
-  "word_count": 123,
-  "char_count": 789
-}
-```
-
-### Data Fields
+Parquet files with the following schema:
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -109,8 +95,6 @@ Splits are stratified by source to ensure each source is represented in all spli
 
 ## Usage
 
-### Loading the Dataset
-
 ```python
 from datasets import load_dataset
 
@@ -124,28 +108,6 @@ test_data = dataset["test"]
 
 # Get all training text
 train_texts = [example["text"] for example in train_data]
-```
-
-### For LLM Continual Pretraining
-
-```python
-from datasets import load_dataset
-
-dataset = load_dataset("NoeFlandre/herero-dataset")
-
-# Combine all training text
-def get_training_corpus():
-    for example in dataset["train"]:
-        yield example["text"]
-
-# Use with your tokenizer
-from transformers import AutoTokenizer
-tokenizer = AutoTokenizer.from_pretrained("your-base-model")
-
-def tokenize_function(examples):
-    return tokenizer(examples["text"], truncation=True, max_length=2048)
-
-tokenized_dataset = dataset.map(tokenize_function, batched=True)
 ```
 
 ## Dataset Creation

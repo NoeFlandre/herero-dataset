@@ -1,10 +1,23 @@
 """
-Tests for Herero Dataset processing utilities.
+Tests for Herero Dataset creation script.
 Run with: pytest tests/ -v
 """
 
 import pytest
-from scripts.processing import normalize_text, text_hash, count_words, stratified_split
+import json
+import hashlib
+import random
+import unicodedata
+from pathlib import Path
+from collections import defaultdict
+
+
+# Import functions from the script
+import sys
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from scripts.create_hf_dataset import (
+    text_hash, count_words, normalize_text, stratified_split
+)
 
 
 class TestNormalizeText:
