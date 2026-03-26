@@ -2,24 +2,31 @@
 
 [![HuggingFace Dataset](https://img.shields.io/badge/Dataset-HuggingFace-blue)](https://huggingface.co/datasets/NoeFlandre/herero-dataset)
 
-A curated dataset of Herero (Otjiherero) language text for NLP research and language model development.
+A curated [Herero (Otjiherero)](https://en.wikipedia.org/wiki/Herero_language) language dataset for NLP research and LLM pretraining.
 
-> **Note:** The data is hosted on [HuggingFace](https://huggingface.co/datasets/NoeFlandre/herero-dataset). This repository contains the code and documentation.
+**1,951 documents · 871K words · 7 sources · MIT License**
+
+## Quick Start
+
+```python
+from datasets import load_dataset
+dataset = load_dataset("NoeFlandre/herero-dataset")
+```
 
 ## Dataset Summary
 
 | Metric | Value |
 |--------|-------|
-| **Total Documents** | 1,951 |
-| **Total Words** | 870,941 |
-| **Total Characters** | 5,882,568 |
-| **Languages** | Herero (hz) |
-| **License** | MIT |
+| Documents | 1,951 |
+| Words | 870,941 |
+| Characters | 5,882,568 |
+| Language | Herero (hz) |
+| License | MIT |
 
 ## Sources
 
-| Source | Documents | Words | License |
-|--------|-----------|-------|---------|
+| Source | Docs | Words | License |
+|--------|-----:|------:|---------|
 | FineWeb-2 | 1,272 | 672,378 | ODC-By 1.0 |
 | Omnilingual ASR | 437 | 60,485 | CC BY 4.0 |
 | GlotCC-V1 | 20 | 75,982 | CC BY 4.0 |
@@ -32,77 +39,52 @@ A curated dataset of Herero (Otjiherero) language text for NLP research and lang
 
 | Split | Documents |
 |-------|-----------|
-| **train** | 1,761 |
-| **validation** | 95 |
-| **test** | 95 |
+| train | 1,761 |
+| validation | 95 |
+| test | 95 |
 
-## Usage
+## Schema
 
-```python
-from datasets import load_dataset
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | string | Unique document ID |
+| `text` | string | Herero text (NFC normalized) |
+| `source` | string | Data source name |
+| `url` | string | Original source URL |
+| `license` | string | Source license |
+| `word_count` | int | Word count |
+| `char_count` | int | Character count |
 
-# Load from HuggingFace Hub
-dataset = load_dataset("NoeFlandre/herero-dataset")
+## Installation
 
-# Access splits
-train_data = dataset["train"]
-val_data = dataset["validation"]
-test_data = dataset["test"]
+```bash
+# Using uv (recommended)
+uv sync
 
-# Get all training text
-train_texts = [example["text"] for example in train_data]
+# Using pip
+pip install -r requirements.txt
 ```
 
-## Structure
+## Testing
+
+```bash
+pytest tests/ -v
+```
+
+## Project Structure
 
 ```
-herero_dataset/
-├── huggingface_dataset/        # HuggingFace-ready dataset (uploaded to HF)
-│   ├── README.md               # Dataset card
-│   ├── LICENSE                # MIT license
+├── huggingface_dataset/   # Dataset on HF Hub
 │   └── data/
 │       ├── train.parquet
 │       ├── validation.parquet
 │       └── test.parquet
-├── scripts/                    # Data collection and processing
-│   ├── create_hf_dataset.py   # Main dataset creation script
-│   ├── scrapers/              # Source-specific scrapers
-│   └── processing/            # Data curation scripts
-├── tests/                     # TDD tests
-├── docs/                      # Documentation
-├── Dockerfile                 # Container definition
-├── pyproject.toml            # Project configuration (uv-compatible)
-├── CITATION.cff               # Citation file
+├── scripts/              # Scrapers & processing
+├── tests/                # TDD tests
+├── docs/                 # Source documentation
+├── Dockerfile
+├── pyproject.toml
 └── README.md
-```
-
-## Quick Start
-
-### Using Docker
-
-```bash
-docker build -t herero-dataset .
-docker run herero-dataset
-```
-
-### Using uv
-
-```bash
-uv sync
-uv run pytest tests/ -v
-```
-
-### Using pip
-
-```bash
-pip install -r requirements.txt
-pytest tests/ -v
-```
-
-## Running Tests
-
-```bash
-pytest tests/ -v
 ```
 
 ## License
