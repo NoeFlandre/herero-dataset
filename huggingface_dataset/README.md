@@ -5,10 +5,10 @@ language:
 - hz
 language_creators:
 - found
-license: cc-by-sa-4.0
+license: mit
 multilinguality:
 - monolingual
-pretty_name: Herero Language Corpus
+pretty_name: Herero Language Dataset
 size_categories:
 - 1K<n<10K
 source_datasets:
@@ -28,48 +28,40 @@ task_ids:
 - language-modeling
 ---
 
-# Herero Language Corpus (Otjiherero)
+# Herero Language Dataset (Otjiherero)
 
-A research-grade dataset of Herero (Otjiherero) language text for LLM pretraining and NLP research.
+A curated dataset of Herero (Otjiherero) language text for LLM pretraining and NLP research. This dataset contains **1,951 documents** with approximately **871,000 words** (5.9 million characters) from 7 curated sources. Herero is a Bantu language spoken by ~250,000 people in Namibia and Botswana.
 
-## Dataset Description
+## Dataset Summary
 
-- **Homepage**: [GitHub Repository](https://github.com/your-username/herero-corpus)
-- **Languages**: Herero (hz/her)
-- **License**: CC BY-SA 4.0
+| Metric | Value |
+|--------|-------|
+| **Total Documents** | 1,951 |
+| **Total Words** | 870,941 |
+| **Total Characters** | 5,882,568 |
+| **Languages** | Herero (hz) |
+| **License** | MIT |
 
-### Summary
+## Dataset Statistics by Source
 
-This dataset contains **1,951 documents** with approximately **871,000 words** (5.9 million characters) of Herero language text from 7 curated sources. Herero (Otjiherero) is a Bantu language spoken by ~250,000 people in Namibia and Botswana.
-
-**Key Features:**
-- ✅ Train/validation/test splits for proper ML evaluation
-- ✅ Stratified sampling ensuring source diversity in all splits
-- ✅ Deduplicated using SHA-256 content hashing
-- ✅ Unicode normalized (NFC)
-- ✅ All sources verified for open licensing
-- ✅ Reproducible (random seed: 42)
-
-## Dataset Statistics
-
-| Split | Documents | Words | Characters |
-|-------|-----------|-------|------------|
-| **train** | 1,761 | 781,598 | 5,276,082 |
-| **validation** | 95 | 48,703 | 329,112 |
-| **test** | 95 | 40,640 | 277,374 |
-| **Total** | 1,951 | 870,941 | 5,882,568 |
-
-### By Source
-
-| Source | Docs | Words | License |
-|--------|------|-------|---------|
+| Source | Documents | Words | License |
+|--------|-----------|-------|---------|
 | FineWeb-2 | 1,272 | 672,378 | ODC-By 1.0 |
-| GlotCC-V1 | 20 | 75,982 | CC BY 4.0 |
 | Omnilingual ASR | 437 | 60,485 | CC BY 4.0 |
+| GlotCC-V1 | 20 | 75,982 | CC BY 4.0 |
 | Herero Bible (1849) | 81 | 26,807 | Public Domain |
-| FinePDFs | 25 | 17,800 | ODC-By 1.0 |
 | Storybooks Namibia | 46 | 13,246 | CC BY 3.0/4.0 |
+| FinePDFs | 25 | 17,800 | ODC-By 1.0 |
 | Wikipedia Incubator | 70 | 4,243 | CC BY-SA 3.0 |
+| **Total** | **1,951** | **870,941** | |
+
+## Data Splits
+
+| Split | Documents | Percentage |
+|-------|-----------|------------|
+| **train** | 1,761 | 90% |
+| **validation** | 95 | 5% |
+| **test** | 95 | 5% |
 
 ## Dataset Structure
 
@@ -119,7 +111,7 @@ Splits are stratified by source to ensure each source is represented in all spli
 from datasets import load_dataset
 
 # Load from HuggingFace Hub
-dataset = load_dataset("your-username/herero-corpus")
+dataset = load_dataset("NoeFlandre/herero-dataset")
 
 # Access splits
 train_data = dataset["train"]
@@ -135,7 +127,7 @@ train_texts = [example["text"] for example in train_data]
 ```python
 from datasets import load_dataset
 
-dataset = load_dataset("your-username/herero-corpus")
+dataset = load_dataset("NoeFlandre/herero-dataset")
 
 # Combine all training text
 def get_training_corpus():
@@ -152,17 +144,6 @@ def tokenize_function(examples):
 tokenized_dataset = dataset.map(tokenize_function, batched=True)
 ```
 
-### Evaluation Example
-
-```python
-# Perplexity evaluation on test set
-from evaluate import load
-perplexity = load("perplexity", module_type="metric")
-
-test_texts = [ex["text"] for ex in dataset["test"]]
-results = perplexity.compute(predictions=test_texts, model_id="your-model")
-```
-
 ## Dataset Creation
 
 ### Curation Rationale
@@ -174,9 +155,9 @@ Herero is a low-resource language with limited digital resources. This dataset w
 
 ### Quality Assurance
 
-- **Deduplication**: SHA-256 content hashing (17 duplicates removed)
+- **Deduplication**: SHA-256 content hashing
 - **Normalization**: Unicode NFC normalization applied
-- **Filtering**: Minimum 50-character threshold (15 documents filtered)
+- **Filtering**: Minimum 50-character threshold
 - **Stratification**: All sources represented in all splits
 - **Reproducibility**: Fixed random seed (42) for deterministic splits
 
@@ -196,70 +177,57 @@ Herero is a low-resource language with limited digital resources. This dataset w
 
 ### Intended Uses
 
-✅ **Recommended:**
 - LLM pretraining/fine-tuning for Herero
 - Language modeling research
 - Low-resource NLP research
 - Linguistic analysis
 
-⚠️ **Use with caution:**
-- Machine translation (limited parallel data)
-- Sentiment analysis (no annotations)
-
 ### Limitations
 
 - Moderate corpus size (~871K words) compared to high-resource languages
-- Domain imbalance (religious content overrepresented)
+- Domain imbalance (web content overrepresented via FineWeb-2)
 - Historical text (1849) uses archaic orthography
 - Speech transcriptions may include disfluencies
 
 ### Bias Considerations
 
-- Religious/spiritual content overrepresented
 - Geographic bias toward Namibia
 - Historical texts reflect 19th-century perspectives
 - Web content reflects online author demographics
 
-### Personal/Sensitive Information
-
-- ❌ No personal identifying information
-- ❌ No private communications
-- ✅ Only publicly available content
-
 ## Licensing
 
-**Dataset License**: CC BY-SA 4.0
+**Dataset License**: MIT
 
-All sources are compatible with CC BY-SA 4.0:
+This dataset is released under MIT license. Source content retains their original licenses:
 
-| Source | License | Compatible |
-|--------|---------|------------|
-| Wikipedia Incubator | CC BY-SA 3.0 | ✅ |
-| Herero Bible | Public Domain | ✅ |
-| Storybooks Namibia | CC BY 3.0/4.0 | ✅ |
-| Omnilingual ASR | CC BY 4.0 | ✅ |
-| GlotCC-V1 | CC BY 4.0 | ✅ |
-| FineWeb-2 | ODC-By 1.0 | ✅ |
-| FinePDFs | ODC-By 1.0 | ✅ |
+| Source | License |
+|--------|---------|
+| FineWeb-2 | ODC-By 1.0 |
+| FinePDFs | ODC-By 1.0 |
+| Omnilingual ASR | CC BY 4.0 |
+| GlotCC-V1 | CC BY 4.0 |
+| Storybooks Namibia | CC BY 3.0/4.0 |
+| Wikipedia Incubator | CC BY-SA 3.0 |
+| Herero Bible (1849) | Public Domain |
 
 ## Citation
 
 ```bibtex
-@dataset{herero_corpus_2024,
-  title = {Herero Language Corpus (Otjiherero)},
-  author = {Your Name},
-  year = {2024},
+@dataset{herero_dataset,
+  title = {Herero Language Dataset (Otjiherero)},
+  author = {Noé Flandre},
+  year = {2026},
   publisher = {HuggingFace},
-  url = {https://huggingface.co/datasets/your-username/herero-corpus},
-  note = {A research-grade dataset of Herero language text for LLM pretraining}
+  url = {https://huggingface.co/datasets/NoeFlandre/herero-dataset}
 }
 ```
 
 ## Acknowledgments
 
 - Wikimedia Foundation and Wikipedia Incubator contributors
-- African Storybook / Saide and Storybooks Namibia
 - Meta AI Research (Omnilingual ASR)
 - CIS LMU Munich (GlotCC)
 - HuggingFace (FineWeb-2, FinePDFs)
+- African Storybook / Saide (Storybooks Namibia)
 - Rhenish Missionary Society (historical Bible text)
