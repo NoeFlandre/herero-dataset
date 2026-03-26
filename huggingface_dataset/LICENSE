@@ -1,21 +1,71 @@
-MIT License
+# Herero Language Dataset - Multi-License Collection
 
-Copyright (c) 2026 Noé Flandre
+This repository is a **redistribution of materials from multiple upstream sources under different licenses**. It is a **collection**, not a derivative work. Each data source retains its original license.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+## Important Notice
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+**This repository is a redistribution of materials from multiple upstream sources under different licenses. Each example remains subject to its original source license. Users are responsible for checking per-row licensing before reuse.**
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+## Source Licenses
+
+| Source | License | Type |
+|--------|---------|------|
+| FineWeb-2 | ODC-By 1.0 | odc_by |
+| Omnilingual ASR | CC BY 4.0 | cc_by |
+| GlotCC-V1 | CC BY 4.0 | cc_by |
+| Herero Bible (1849) | Public Domain | public_domain |
+| Storybooks Namibia | CC BY 4.0 | cc_by |
+| FinePDFs | ODC-By 1.0 | odc_by |
+| Wikipedia Incubator | CC BY-SA 3.0 | cc_by_sa |
+
+## License Summaries
+
+### Public Domain (herero_bible_1849)
+No copyright restrictions. Published in 1849.
+
+### CC BY 4.0 - Attribution (omnilingual_asr, glotcc_v1, storybooks_namibia)
+You are free to:
+- **Share**: Copy and redistribute the material
+- **Adapt**: Remix, transform, build upon the material
+
+Under these terms:
+- **Attribution**: You must give appropriate credit to the original source
+- **No additional restrictions**: You may not apply legal terms that restrict others
+
+### CC BY-SA 3.0 - Attribution-ShareAlike (wikipedia_incubator)
+Same as CC BY 4.0, plus:
+- **ShareAlike**: If you remix or transform the material, you must distribute your contribution under the same license
+
+Note: As a mere collection (not an adaptation), CC BY-SA does not apply to the aggregated dataset.
+
+### ODC-By 1.0 - Open Data Commons Attribution (fineweb2, finepdfs)
+You are free to:
+- **Share**: Copy, distribute, use the database
+- **Create**: Produce derivative works from the database
+- **Modify**: Transform, translate, build upon the database
+
+Under these terms:
+- **Attribution**: You must give appropriate credit to the original database
+- **Keep open**: If you publicize a modified version, you must also publish it under ODC-By
+- **No sublicensing**: You may not sublicense the database under different terms
+
+See: https://opendatacommons.org/licenses/by/1-0/
+
+## Per-Row Licensing
+
+Each row in the dataset carries these provenance columns:
+- `source`: The data source name
+- `original_license`: The original license of that source
+- `original_url`: Link to the original source
+- `changes_made`: Description of any transformations applied
+
+**Users must check the `original_license` field for each example to determine applicable terms.**
+
+## Disclaimer
+
+This documentation is provided for informational purposes only and does not constitute legal advice. For questions about licensing, consult the original license texts or seek legal counsel.
+
+## See Also
+
+- `sources.csv` - Full source manifest with attribution details
+- `README.md` - Dataset documentation

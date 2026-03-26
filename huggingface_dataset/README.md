@@ -1,38 +1,18 @@
 ---
-annotations_creators:
-- no-annotation
+license: other
+license_name: multiple-licenses
+pretty_name: Herero Language Dataset
 language:
 - hz
-language_creators:
-- found
-license: mit
-multilinguality:
-- monolingual
-pretty_name: Herero Language Dataset
-size_categories:
-- 1K<n<10K
-source_datasets:
-- original
-tags:
-- herero
-- otjiherero
-- namibia
-- bantu
-- low-resource
-- african-languages
-- pretraining
 task_categories:
-- text-generation
-- fill-mask
-task_ids:
-- language-modeling
+- text-classification
 ---
 
 # Herero Language Dataset
 
-[![GitHub Repository](https://img.shields.io/badge/Code-GitHub-blue)](https://github.com/NoeFlandre/herero-dataset)
+A **multi-license collection** of [Herero (Otjiherero)](https://en.wikipedia.org/wiki/Herero_language) text for NLP research. This is **not** a derivative work—sources are aggregated with original licenses preserved.
 
-A curated dataset of [Herero (Otjiherero)](https://en.wikipedia.org/wiki/Herero_language) language text for LLM pretraining and NLP research. Herero is a Bantu language spoken by ~250,000 people in Namibia and Botswana.
+**⚠️ WARNING: This repository is a redistribution of materials from multiple upstream sources under different licenses. Each example remains subject to its original source license. Users are responsible for checking per-row licensing before reuse.**
 
 ## Dataset Summary
 
@@ -40,9 +20,8 @@ A curated dataset of [Herero (Otjiherero)](https://en.wikipedia.org/wiki/Herero_
 |--------|-------|
 | Documents | 1,951 |
 | Words | 870,941 |
-| Characters | 5,882,568 |
+| Sources | 7 |
 | Language | Herero (hz) |
-| License | MIT |
 
 ## Sources
 
@@ -52,7 +31,7 @@ A curated dataset of [Herero (Otjiherero)](https://en.wikipedia.org/wiki/Herero_
 | Omnilingual ASR | 437 | 60,485 | CC BY 4.0 |
 | GlotCC-V1 | 20 | 75,982 | CC BY 4.0 |
 | Herero Bible (1849) | 81 | 26,807 | Public Domain |
-| Storybooks Namibia | 46 | 13,246 | CC BY 3.0/4.0 |
+| Storybooks Namibia | 46 | 13,246 | CC BY 4.0 |
 | FinePDFs | 25 | 17,800 | ODC-By 1.0 |
 | Wikipedia Incubator | 70 | 4,243 | CC BY-SA 3.0 |
 
@@ -66,17 +45,20 @@ A curated dataset of [Herero (Otjiherero)](https://en.wikipedia.org/wiki/Herero_
 
 ## Schema
 
+Each row includes provenance columns:
+
 | Field | Type | Description |
 |-------|------|-------------|
-| `id` | string | Unique document ID (source_prefix + number) |
+| `id` | string | Unique document ID |
 | `text` | string | Herero text (NFC normalized) |
 | `source` | string | Data source name |
-| `url` | string | Original source URL |
-| `license` | string | Source license |
+| `original_license` | string | Source license (check this!) |
+| `original_url` | string | Link to original source |
+| `changes_made` | string | Transformations applied |
+| `license_type` | string | License category |
+| `url` | string | Source URL |
 | `word_count` | int | Word count |
 | `char_count` | int | Character count |
-
-Splits are stratified by source to ensure representation in all splits.
 
 ## Usage
 
@@ -85,16 +67,24 @@ from datasets import load_dataset
 
 dataset = load_dataset("NoeFlandre/herero-dataset")
 
-train_data = dataset["train"]
-val_data = dataset["validation"]
-test_data = dataset["test"]
+# Check per-row license BEFORE use
+for example in dataset["train"]:
+    print(f"License: {example['original_license']} - {example['source']}")
 ```
+
+## Collection Classification
+
+This dataset is a **collection**, not an adaptation:
+- Text is aggregated from sources without material modification
+- Original text is preserved (only formatting normalized)
+- No translation, rewriting, or merging across sources
+- Source boundaries maintained via `source` column
 
 ## Quality Assurance
 
-- **Deduplication**: SHA-256 content hashing
-- **Normalization**: Unicode NFC normalization
-- **Filtering**: Minimum 50-character threshold
+- **Deduplication**: Within-source SHA-256 content hashing
+- **Normalization**: Unicode NFC normalization (no text rewriting)
+- **Filtering**: Min-length 50 chars
 - **Reproducibility**: Fixed random seed (42)
 
 ## Known Limitations
@@ -104,28 +94,31 @@ test_data = dataset["test"]
 - Historical text uses 19th-century orthography
 - Speech transcripts may contain disfluencies
 
-## Licensing
+## Ethical Considerations
 
-Dataset: MIT
+- No personal data included
+- All content publicly available at time of scraping
+- Attribution preserved via `original_url` column
+- Users must respect individual source licenses
 
-Source content retains original licenses. See the [GitHub repository](https://github.com/NoeFlandre/herero-dataset) for full attribution.
+## Licensing Summary
 
-## Citation
+| License Type | Sources | Requirements |
+|-------------|---------|--------------|
+| Public Domain | 1 | None |
+| CC BY | 3 | Attribution |
+| CC BY-SA | 1 | Attribution + ShareAlike |
+| ODC-By | 2 | Attribution + Keep open |
 
-```bibtex
-@dataset{herero_dataset,
-  title = {Herero Language Dataset},
-  author = {Noé Flandre},
-  year = {2026},
-  url = {https://huggingface.co/datasets/NoeFlandre/herero-dataset}
-}
-```
+**You must check the `original_license` column for each example.**
 
-## Acknowledgments
+## Files
 
-- Wikimedia Foundation (Wikipedia Incubator)
-- Meta AI Research (Omnilingual ASR)
-- CIS LMU Munich (GlotCC)
-- HuggingFace (FineWeb-2, FinePDFs)
-- African Storybook / Saide
-- Rhenish Missionary Society
+- `data/train.parquet` - Training split
+- `data/validation.parquet` - Validation split
+- `data/test.parquet` - Test split
+- `sources.csv` - Full source manifest
+
+## Disclaimer
+
+This documentation is provided for informational purposes only and does not constitute legal advice. Uncertain licensing cases were reviewed conservatively. For legal questions, consult the original license texts or seek professional counsel.

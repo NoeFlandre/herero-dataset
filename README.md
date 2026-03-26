@@ -2,15 +2,19 @@
 
 [![HuggingFace Dataset](https://img.shields.io/badge/Dataset-HuggingFace-blue)](https://huggingface.co/datasets/NoeFlandre/herero-dataset)
 
-A curated [Herero (Otjiherero)](https://en.wikipedia.org/wiki/Herero_language) language dataset for NLP research and LLM pretraining.
+A **multi-license collection** of [Herero (Otjiherero)](https://en.wikipedia.org/wiki/Herero_language) text for NLP research and LLM pretraining.
 
-**1,951 documents · 871K words · 7 sources · MIT License**
+**⚠️ This repository redistributes materials from multiple upstream sources under different licenses. Check per-row `original_license` before reuse.**
 
 ## Quick Start
 
 ```python
 from datasets import load_dataset
 dataset = load_dataset("NoeFlandre/herero-dataset")
+
+# Check license BEFORE use
+example = dataset["train"][0]
+print(f"License: {example['original_license']}")
 ```
 
 ## Dataset Summary
@@ -19,9 +23,8 @@ dataset = load_dataset("NoeFlandre/herero-dataset")
 |--------|-------|
 | Documents | 1,951 |
 | Words | 870,941 |
-| Characters | 5,882,568 |
+| Sources | 7 |
 | Language | Herero (hz) |
-| License | MIT |
 
 ## Sources
 
@@ -31,7 +34,7 @@ dataset = load_dataset("NoeFlandre/herero-dataset")
 | Omnilingual ASR | 437 | 60,485 | CC BY 4.0 |
 | GlotCC-V1 | 20 | 75,982 | CC BY 4.0 |
 | Herero Bible (1849) | 81 | 26,807 | Public Domain |
-| Storybooks Namibia | 46 | 13,246 | CC BY 3.0/4.0 |
+| Storybooks Namibia | 46 | 13,246 | CC BY 4.0 |
 | FinePDFs | 25 | 17,800 | ODC-By 1.0 |
 | Wikipedia Incubator | 70 | 4,243 | CC BY-SA 3.0 |
 
@@ -45,29 +48,20 @@ dataset = load_dataset("NoeFlandre/herero-dataset")
 
 ## Schema
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | string | Unique document ID |
-| `text` | string | Herero text (NFC normalized) |
-| `source` | string | Data source name |
-| `url` | string | Original source URL |
-| `license` | string | Source license |
-| `word_count` | int | Word count |
-| `char_count` | int | Character count |
+| Field | Description |
+|-------|-------------|
+| `id` | Unique document ID |
+| `text` | Herero text (NFC normalized) |
+| `source` | Data source name |
+| `original_license` | **Check this before use!** |
+| `original_url` | Link to original source |
+| `changes_made` | Transformations applied |
+| `license_type` | License category |
 
 ## Installation
 
 ```bash
-# Using uv (recommended)
-uv sync
-
-# Using pip
-pip install -r requirements.txt
-```
-
-## Testing
-
-```bash
+uv sync  # or: pip install -r requirements.txt
 pytest tests/ -v
 ```
 
@@ -75,18 +69,29 @@ pytest tests/ -v
 
 ```
 ├── huggingface_dataset/   # Dataset on HF Hub
+│   ├── README.md         # Dataset card
+│   ├── LICENSE           # Multi-license notice
+│   ├── sources.csv       # Source manifest
 │   └── data/
 │       ├── train.parquet
 │       ├── validation.parquet
 │       └── test.parquet
 ├── scripts/              # Scrapers & processing
-├── tests/                # TDD tests
-├── docs/                 # Source documentation
+├── tests/               # TDD tests
+├── docs/                # Source documentation
 ├── Dockerfile
 ├── pyproject.toml
 └── README.md
 ```
 
+## Classification
+
+This is a **collection**, not an adaptation:
+- Sources aggregated without material modification
+- Original text preserved
+- No cross-source merging or rewriting
+- ShareAlike does not apply to mere collections
+
 ## License
 
-MIT License - See [LICENSE](LICENSE)
+See [huggingface_dataset/LICENSE](huggingface_dataset/LICENSE) for multi-license details.

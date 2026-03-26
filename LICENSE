@@ -1,21 +1,46 @@
-MIT License
+# Herero Language Dataset - Multi-License Collection
 
-Copyright (c) 2026 Noé Flandre
+This project is a **redistribution of materials from multiple upstream sources under different licenses**.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+## ⚠️ Important Notice
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+**Each data example remains subject to its original source license. Check the `original_license` column before use.**
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+This repository is a **collection**, not a derivative work. Creative Commons ShareAlike does not apply to mere collections.
+
+## Source Licenses
+
+| Source | License | Type |
+|--------|---------|------|
+| FineWeb-2 | ODC-By 1.0 | odc_by |
+| Omnilingual ASR | CC BY 4.0 | cc_by |
+| GlotCC-V1 | CC BY 4.0 | cc_by |
+| Herero Bible (1849) | Public Domain | public_domain |
+| Storybooks Namibia | CC BY 4.0 | cc_by |
+| FinePDFs | ODC-By 1.0 | odc_by |
+| Wikipedia Incubator | CC BY-SA 3.0 | cc_by_sa |
+
+## Per-Row Licensing
+
+Each row carries provenance columns:
+- `original_license`: The original license of that source
+- `original_url`: Link to the original source
+- `changes_made`: Description of transformations
+
+**Users must check `original_license` for each example.**
+
+## License Categories
+
+- **Public Domain**: No restrictions (herero_bible_1849 only)
+- **CC BY**: Attribution required (omnilingual_asr, glotcc_v1, storybooks_namibia)
+- **CC BY-SA**: Attribution + ShareAlike (wikipedia_incubator)
+- **ODC-By**: Attribution + Keep open (fineweb2, finepdfs)
+
+## Disclaimer
+
+This documentation is for informational purposes only and does not constitute legal advice.
+
+## See Also
+
+- `huggingface_dataset/LICENSE` - Full multi-license details
+- `huggingface_dataset/sources.csv` - Source manifest
