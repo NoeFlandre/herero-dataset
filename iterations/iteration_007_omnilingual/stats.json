@@ -1,0 +1,14 @@
+{
+    "iteration": "007",
+    "source": "omnilingual_asr_corpus",
+    "date": "2025-12-25",
+    "status": "completed",
+    "source_url": "https://huggingface.co/datasets/Sellopale/omnilingualpaleoi",
+    "original_source": "facebook/omnilingual-asr-corpus",
+    "license": "CC-BY-4.0",
+    "parquet_files": 4,
+    "total_parquet_rows": 443,
+    "unique_texts": 437,
+    "total_characters": 446201,
+    "total_words": 60485
+}

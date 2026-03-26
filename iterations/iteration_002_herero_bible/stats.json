@@ -1,0 +1,15 @@
+{
+    "iteration": "002",
+    "source": "herero_bible_1849",
+    "date": "2025-12-24",
+    "status": "completed",
+    "source_url": "https://archive.org/stream/OmahungiOaEmboRaJehovaNaOmaimpurir/Omahungi_oa_Embo_ra_Jehova_na_omaimpurir_djvu.txt",
+    "original_year": 1849,
+    "license": "Public Domain",
+    "total_sections": 81,
+    "stories_count": 47,
+    "hymns_count": 34,
+    "total_characters": 154587,
+    "total_words": 26807,
+    "avg_chars_per_section": 1908
+}

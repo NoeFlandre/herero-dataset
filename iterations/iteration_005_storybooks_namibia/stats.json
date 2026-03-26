@@ -1,0 +1,12 @@
+{
+    "iteration": "005",
+    "source": "storybooks_namibia",
+    "date": "2025-12-25",
+    "status": "completed",
+    "source_url": "https://storybooksnamibia.net/stories/hz/",
+    "license": "CC BY 3.0/4.0",
+    "total_stories": 46,
+    "total_characters": 83476,
+    "total_words": 13246,
+    "extraction_method": "CSS class 'def' for Herero text"
+}

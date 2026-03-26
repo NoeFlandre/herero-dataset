@@ -1,0 +1,82 @@
+{
+  "total_docs": 1951,
+  "duplicates_removed": 17,
+  "min_length_filtered": 15,
+  "by_source": {
+    "wikipedia_incubator": {
+      "docs": 70,
+      "words": 4243,
+      "chars": 33558,
+      "duplicates": 16,
+      "filtered": 15
+    },
+    "herero_bible_1849": {
+      "docs": 81,
+      "words": 26807,
+      "chars": 153812,
+      "duplicates": 0,
+      "filtered": 0
+    },
+    "storybooks_namibia": {
+      "docs": 46,
+      "words": 13246,
+      "chars": 82953,
+      "duplicates": 0,
+      "filtered": 0
+    },
+    "omnilingual_asr": {
+      "docs": 437,
+      "words": 60485,
+      "chars": 446071,
+      "duplicates": 0,
+      "filtered": 0
+    },
+    "glotcc_v1": {
+      "docs": 20,
+      "words": 75982,
+      "chars": 487438,
+      "duplicates": 0,
+      "filtered": 0
+    },
+    "fineweb2": {
+      "docs": 1272,
+      "words": 672378,
+      "chars": 4551338,
+      "duplicates": 1,
+      "filtered": 0
+    },
+    "finepdfs": {
+      "docs": 25,
+      "words": 17800,
+      "chars": 127398,
+      "duplicates": 0,
+      "filtered": 0
+    }
+  },
+  "splits": {
+    "train": {
+      "docs": 1761,
+      "words": 781598,
+      "chars": 5288405
+    },
+    "validation": {
+      "docs": 95,
+      "words": 48703,
+      "chars": 322891
+    },
+    "test": {
+      "docs": 95,
+      "words": 40640,
+      "chars": 271272
+    }
+  },
+  "total_words": 870941,
+  "total_chars": 5882568,
+  "random_seed": 42,
+  "split_ratios": {
+    "train": 0.9,
+    "validation": 0.05,
+    "test": 0.05
+  },
+  "created_at": "2025-12-26T12:08:18.361559Z"
+}

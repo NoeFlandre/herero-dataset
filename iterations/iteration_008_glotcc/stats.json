@@ -1,0 +1,11 @@
+{
+    "iteration": "008",
+    "source": "glotcc_v1",
+    "date": "2025-12-25",
+    "status": "completed",
+    "source_url": "https://huggingface.co/datasets/cis-lmu/GlotCC-V1",
+    "license": "CC BY 4.0",
+    "documents": 20,
+    "total_characters": 487445,
+    "total_words": 75982
+}
