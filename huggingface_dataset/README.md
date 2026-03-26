@@ -30,7 +30,11 @@ task_ids:
 
 # Herero Language Dataset (Otjiherero)
 
+[![GitHub Repository](https://img.shields.io/badge/Code-GitHub-blue)](https://github.com/NoeFlandre/herero-dataset)
+
 A curated dataset of Herero (Otjiherero) language text for LLM pretraining and NLP research. This dataset contains **1,951 documents** with approximately **871,000 words** (5.9 million characters) from 7 curated sources. Herero is a Bantu language spoken by ~250,000 people in Namibia and Botswana.
+
+> **Note:** The data is hosted here on HuggingFace. For code, scripts, and documentation, see the [GitHub repository](https://github.com/NoeFlandre/herero-dataset).
 
 ## Dataset Summary
 

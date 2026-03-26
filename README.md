@@ -1,6 +1,10 @@
 # Herero Language Dataset
 
+[![HuggingFace Dataset](https://img.shields.io/badge/Dataset-HuggingFace-blue)](https://huggingface.co/datasets/NoeFlandre/herero-dataset)
+
 A curated dataset of Herero (Otjiherero) language text for NLP research and language model development.
+
+> **Note:** The data is hosted on [HuggingFace](https://huggingface.co/datasets/NoeFlandre/herero-dataset). This repository contains the code and documentation.
 
 ## Dataset Summary
 
@@ -44,7 +48,7 @@ dataset = load_dataset("NoeFlandre/herero-dataset")
 
 ```
 herero_dataset/
-├── huggingface_dataset/        # HuggingFace-ready dataset
+├── huggingface_dataset/        # HuggingFace-ready dataset (uploaded to HF)
 │   ├── README.md               # Dataset card
 │   ├── LICENSE                 # MIT license
 │   └── data/
